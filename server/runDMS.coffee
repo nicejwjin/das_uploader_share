@@ -16,7 +16,7 @@ Meteor.startup ->
       query = "select * from dual"
       cp = require 'child_process'
       fut = new future()
-      cp.exec 'cd /Users/mStartup/WebstormProjects/das_uploader/tests/java-tibero && javac TestConnection.java && java TestConnection "'+ dbInfo + '" "'+ query+ '" "'+ service.DB정보.DB_ID + '" "'+ service.DB정보.DB_PWD + '"', (err,stdout,stderr) ->
+      cp.exec 'cd /usr/local/src/das_uploader_share/tests/java-tibero && javac TestConnection.java && java TestConnection "'+ dbInfo + '" "'+ query+ '" "'+ service.DB정보.DB_ID + '" "'+ service.DB정보.DB_PWD + '"', (err,stdout,stderr) ->
         cl err or stderr or stdout
         fut.return err or stderr or 'success'
       return fut.wait()
