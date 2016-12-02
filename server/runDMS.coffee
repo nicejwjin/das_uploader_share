@@ -6,9 +6,9 @@ Meteor.startup ->
   Meteor.methods
     tiberoTest: ->
       service = { DB정보: {}}
-      service.DB정보.DB_IP     = "152.99.160.22";
-      service.DB정보.DB_PORT   = "8629";
-      service.DB정보.DB_DATABASE    = "tibero";
+#      service.DB정보.DB_IP     = "152.99.160.22";
+#      service.DB정보.DB_PORT   = "8629";
+#      service.DB정보.DB_DATABASE    = "tibero";
       service.DB정보.DB_ID     = "dasusers";
       service.DB정보.DB_PWD    = "dasusers123";
       dbInfo = "jdbc:tibero:thin:@#{service.DB정보.DB_IP}:#{service.DB정보.DB_PORT}:#{service.DB정보.DB_DATABASE}"
@@ -107,12 +107,14 @@ Meteor.startup ->
 ##    delete query
       switch service?.DB정보?.DBMS종류
         when 'Tibero3'
+          ## jwjin/1612020128 급해서 그냥 JAVA에 하드코드로 디비 정보 박아 둠.
 #          cl "jdbc:sqlserver://#{service.DB정보.DB_IP}:#{service.DB정보.DB_PORT};user=#{service.DB정보.DB_ID};password=#{service.DB정보.DB_PW};database=#{service.DB정보.DB_DATABASE}"
-          service.DB정보.DB_IP     = "localhost";
-          service.DB정보.DB_PORT   = "8629";
-          service.DB정보.DB_SID    = "tibero";
-          service.DB정보.DB_ID     = "dasusers";
-          service.DB정보.DB_PWD    = "dasusers123";
+#          service.DB정보.DB_IP     = "localhost";
+#          service.DB정보.DB_PORT   = "8629";
+#          service.DB정보.DB_SID    = "tibero";
+#          service.DB정보.DB_ID     = "dasusers";
+#          service.DB정보.DB_PWD    = "dasusers123";
+
           cl "jdbc:tibero:thin:@#{service.DB정보.DB_IP}:#{service.DB정보.DB_PORT}:#{service.DB정보.DB_DATABASE}"
 #          dbInfo = "jdbc:sqlserver://#{service.DB정보.DB_IP}:#{service.DB정보.DB_PORT};user=#{service.DB정보.DB_ID};password=#{service.DB정보.DB_PW};database=#{service.DB정보.DB_DATABASE}"
 
