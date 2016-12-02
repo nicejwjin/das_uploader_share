@@ -113,10 +113,13 @@ public class TestConnection
         System.out.println(args[1]);
         System.out.println(args[2]);
         System.out.println(args[3]);
-//        TestConnection test = new TestConnection();
-//
-//        test.connect();
-//        test.excute();
-//        test.disconnect();
+
+        DB_ID = args[2]
+        DB_PWD = args[3]
+        TestConnection test = new TestConnection();
+
+        test.connect();
+        test.excute();
+        test.disconnect();
     }
 }
