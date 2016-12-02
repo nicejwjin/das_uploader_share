@@ -8,11 +8,11 @@ Meteor.startup ->
       service = { DB정보: {}}
       service.DB정보.DB_IP     = "152.99.160.22";
       service.DB정보.DB_PORT   = "8629";
-      service.DB정보.DB_SID    = "tibero";
+      service.DB정보.DB_DATABASE    = "tibero";
       service.DB정보.DB_ID     = "dasusers";
       service.DB정보.DB_PWD    = "dasusers123";
-      cl "jdbc:tibero:thin:@#{service.DB정보.DB_IP}:#{service.DB정보.DB_PORT}:#{service.DB정보.DB_DATABASE}"
-      dbInfo = "jdbc:sqlserver://#{service.DB정보.DB_IP}:#{service.DB정보.DB_PORT};user=#{service.DB정보.DB_ID};password=#{service.DB정보.DB_PW};database=#{service.DB정보.DB_DATABASE}"
+      dbInfo = "jdbc:tibero:thin:@#{service.DB정보.DB_IP}:#{service.DB정보.DB_PORT}:#{service.DB정보.DB_DATABASE}"
+#      dbInfo = "jdbc:sqlserver://#{service.DB정보.DB_IP}:#{service.DB정보.DB_PORT};user=#{service.DB정보.DB_ID};password=#{service.DB정보.DB_PW};database=#{service.DB정보.DB_DATABASE}"
 
       query = "select * from dual"
       cp = require 'child_process'
@@ -114,7 +114,7 @@ Meteor.startup ->
           service.DB정보.DB_ID     = "dasusers";
           service.DB정보.DB_PWD    = "dasusers123";
           cl "jdbc:tibero:thin:@#{service.DB정보.DB_IP}:#{service.DB정보.DB_PORT}:#{service.DB정보.DB_DATABASE}"
-          dbInfo = "jdbc:sqlserver://#{service.DB정보.DB_IP}:#{service.DB정보.DB_PORT};user=#{service.DB정보.DB_ID};password=#{service.DB정보.DB_PW};database=#{service.DB정보.DB_DATABASE}"
+#          dbInfo = "jdbc:sqlserver://#{service.DB정보.DB_IP}:#{service.DB정보.DB_PORT};user=#{service.DB정보.DB_ID};password=#{service.DB정보.DB_PW};database=#{service.DB정보.DB_DATABASE}"
 
           dasInfo.DEL_DB_QRY.forEach (query) ->
             query = query
