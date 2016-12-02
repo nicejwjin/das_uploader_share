@@ -115,14 +115,14 @@ Meteor.startup ->
 #          service.DB정보.DB_ID     = "dasusers";
 #          service.DB정보.DB_PWD    = "dasusers123";
 
-          cl "jdbc:tibero:thin:@#{service.DB정보.DB_IP}:#{service.DB정보.DB_PORT}:#{service.DB정보.DB_DATABASE}"
+#          cl "jdbc:tibero:thin:@#{service.DB정보.DB_IP}:#{service.DB정보.DB_PORT}:#{service.DB정보.DB_DATABASE}"
 #          dbInfo = "jdbc:sqlserver://#{service.DB정보.DB_IP}:#{service.DB정보.DB_PORT};user=#{service.DB정보.DB_ID};password=#{service.DB정보.DB_PW};database=#{service.DB정보.DB_DATABASE}"
 
           dasInfo.DEL_DB_QRY.forEach (query) ->
-            query = query
+#            query = "select * from dual"
             cp = require 'child_process'
             fut = new future()
-            cp.exec 'cd /Users/mStartup/WebstormProjects/das_uploader/tests/java-tibero && javac TestConnection.java && java TestConnection "'+ dbInfo + '" "'+ query+ '" "'+ service.DB정보.DB_ID + '" "'+ service.DB정보.DB_PWD + '"', (err,stdout,stderr) ->
+            cp.exec 'cd /usr/local/src/das_uploader_share/tests/java-tibero && javac TestConnection.java && java -cp .:./tibero3-jdbc.jar TestConnection "'+ dbInfo + '" "'+ query+ '" "'+ service.DB정보.DB_ID + '" "'+ service.DB정보.DB_PWD + '"', (err,stdout,stderr) ->
               cl err or stderr or stdout
               fut.return err or stderr or 'success'
             return fut.wait()
