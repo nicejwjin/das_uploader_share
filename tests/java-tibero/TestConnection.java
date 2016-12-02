@@ -63,7 +63,7 @@ public class TestConnection
         {
             strSQL = "select * from dual";
             stmt = conn.createStatement();
-            rs = stmt.execute(strSQL);
+            rs = stmt.executeQuery(strSQL);
             System.out.println("=====================================");
             System.out.println("SQL : " + strSQL);
             System.out.println("-------------------------------------");
