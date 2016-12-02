@@ -5,7 +5,7 @@ mysql = require 'mysql'
 Meteor.startup ->
   Meteor.methods
     tiberoTest: ->
-      service.DB정보.DB_IP     = "localhost";
+      service.DB정보.DB_IP     = "152.99.160.22";
       service.DB정보.DB_PORT   = "8629";
       service.DB정보.DB_SID    = "tibero";
       service.DB정보.DB_ID     = "dasusers";
