@@ -13,7 +13,7 @@ public class TestConnection
 
 
     //String DB_IP     = "";
-    String DB_IP     = "localhost";
+    String DB_IP     = "152.99.160.22";
     String DB_PORT   = "8629";
     String DB_SID    = "tibero";
     String DB_ID     = "dasusers";
@@ -114,8 +114,8 @@ public class TestConnection
         System.out.println(args[2]);
         System.out.println(args[3]);
 
-        DB_ID = args[2]
-        DB_PWD = args[3]
+//        DB_ID = args[2]
+//        DB_PWD = args[3]
         TestConnection test = new TestConnection();
 
         test.connect();
