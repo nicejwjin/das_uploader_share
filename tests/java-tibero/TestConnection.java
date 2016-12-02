@@ -57,7 +57,7 @@ public class TestConnection
 
 
 
-    public void excute(query)
+    public void excute(String query)
     {
         try
         {
